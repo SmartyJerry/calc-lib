@@ -2,7 +2,7 @@ package calc
 
 import "testing"
 
-func TestAddition_Calculate(t *testing.T) {
+func TestSubtraction_Calculate(t *testing.T) {
 	type args struct {
 		a int
 		b int
@@ -13,14 +13,15 @@ func TestAddition_Calculate(t *testing.T) {
 		want int
 	}{
 		{"Zeros", args{0, 0}, 0},
-		{"Positives", args{1, 5}, 6},
-		{"Negative First", args{-2, 5}, 3},
-		{"Negative Second", args{2, -5}, -3},
+		{"Positives", args{5, 1}, 4},
+		{"Negative First", args{-2, 5}, -7},
+		{"Negative Second", args{2, -5}, 7},
+		{"Larger Second", args{2, 5}, -3},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			addition := Addition{}
-			got, err := addition.Calculate(tt.args.a, tt.args.b)
+			subtraction := Subtraction{}
+			got, err := subtraction.Calculate(tt.args.a, tt.args.b)
 			assertError(t, nil, err)
 			if got != tt.want {
 				t.Errorf("Calculate() = %v, want %v", got, tt.want)
