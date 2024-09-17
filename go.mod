@@ -1,1 +1,1 @@
-module calc-lib
+module github.com/SmartyJerry/calc-lib
